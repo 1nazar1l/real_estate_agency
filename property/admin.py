@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Flat, Complaint, Owner
 
 class AdminInline(admin.TabularInline):
-    model = Owner.owned_apartments.through
+    model = Owner.apartments.through
     raw_id_fields = ('owner',)
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -19,7 +19,7 @@ class ModelAdmin(admin.ModelAdmin):
     raw_id_fields = ('user_name', 'flat')
 
 class OwnerAdmin(admin.ModelAdmin):
-    raw_id_fields = ('owned_apartments',)
+    raw_id_fields = ('apartments',)
 
 admin.site.register(Flat, AuthorAdmin)
 admin.site.register(Complaint, ModelAdmin)
