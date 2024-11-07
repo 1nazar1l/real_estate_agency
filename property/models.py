@@ -71,6 +71,10 @@ class Complaint(models.Model):
         
     description = models.TextField(null=True, blank=True, verbose_name="Текст жалобы")
 
+    def __str__(self):
+        return f'{self.user}, {self.flat}'
+    
+
 
 class Owner(models.Model):
     name = models.CharField('ФИО владельца', null=True,blank=True, max_length=200, db_index=True)
