@@ -54,7 +54,7 @@ class Flat(models.Model):
         return f'{self.town}, {self.address} ({self.price}р.)'
     
 class Complaint(models.Model):
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Пользователь подавший жалобу")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Пользователь подавший жалобу")
     flat = models.ForeignKey(Flat, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Квартира на которую подали жалобу")
     decription = models.TextField(null=True, blank=True, verbose_name="Текст жалобы")
 

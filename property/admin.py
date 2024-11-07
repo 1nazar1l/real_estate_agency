@@ -16,7 +16,7 @@ class AuthorAdmin(admin.ModelAdmin):
     inlines = [AdminInline]
 
 class ModelAdmin(admin.ModelAdmin):
-    raw_id_fields = ('user_name', 'flat')
+    raw_id_fields = ('user', 'flat')
 
 class OwnerAdmin(admin.ModelAdmin):
     raw_id_fields = ('apartments',)
