@@ -3,13 +3,13 @@
 from django.db import migrations
 
 def add_owners(apps, schema_editor):
-    flats = apps.get_model('property','Flat')
+    flat = apps.get_model('property','Flat')
     owners = apps.get_model('property','Owner')
 
     for owner in owners.objects.all().iterator():
         name = owner.name
         phone_number = owner.owners_phonenumber
-        owner_flats = flats.objects.filter(owner=name, owners_phonenumber=phone_number)
+        owner_flats = flat.objects.filter(owner=name, owners_phonenumber=phone_number)
         owner.owned_apartments.set(owner_flats)
 
 

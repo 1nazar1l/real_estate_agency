@@ -3,10 +3,10 @@
 from django.db import migrations
 
 def add_owners(apps, schema_editor):
-    flats = apps.get_model('property','Flat')
+    flat = apps.get_model('property','Flat')
     owner = apps.get_model('property','Owner')
 
-    for flat in flats.objects.all().iterator():
+    for flat in flat.objects.all().iterator():
         owner.objects.get_or_create(name=flat.owner, defaults = {
             'owners_phonenumber': flat.owners_phonenumber,
             'owner_pure_phone': flat.owner_pure_phone,

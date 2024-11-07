@@ -4,14 +4,14 @@ from django.db import migrations
 import phonenumbers
 
 def replace_phonenumbers(apps, schema_editor):
-    flats = apps.get_model('property', 'Flat')
-    for flat in flats.objects.all().iterator():
+    flat = apps.get_model('property', 'Flat')
+    for flat in flat.objects.all().iterator():
         flat.owner_pure_phone = None
         flat.save()
 
 def update_phonenumbers(apps, schema_editor):
-    flats = apps.get_model('property', 'Flat')
-    for flat in flats.objects.all().iterator():
+    flat = apps.get_model('property', 'Flat')
+    for flat in flat.objects.all().iterator():
         normal_number = phonenumbers.parse(flat.owners_phonenumber, "RU")
         if not phonenumbers.is_possible_number(normal_number):
             normal_number = None
