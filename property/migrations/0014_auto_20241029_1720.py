@@ -5,7 +5,7 @@ import phonenumbers
 
 def replace_phonenumbers(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in flat.objects.all().iterator():
+    for flat in Flat.objects.all().iterator():
         flat.owner_pure_phone = None
         flat.save()
 
