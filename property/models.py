@@ -67,7 +67,7 @@ class Complaint(models.Model):
         null=True, 
         blank=True, 
         verbose_name="Квартира на которую подали жалобу", 
-        related_name="bad_flats")
+        related_name="flats")
         
     description = models.TextField(null=True, blank=True, verbose_name="Текст жалобы")
 
